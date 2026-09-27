@@ -1,4 +1,7 @@
-// same.js：比一对（基线：一律算不相等）
+// same.js：比一对，后一个等于前一个算相等；越界返回假
 export function sameAt(values, spot) {
-  return false;
+  if (!Array.isArray(values) || spot < 0 || spot + 1 >= values.length) {
+    return false;
+  }
+  return values[spot + 1] === values[spot];
 }
